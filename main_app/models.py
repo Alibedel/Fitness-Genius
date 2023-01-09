@@ -15,3 +15,6 @@ class Workout(models.Model):
 
     # def get_absolute_url(self):
     # return reverse('detail', kwargs={'workout_id': self.id})
+
+
+#gooooooooood work
