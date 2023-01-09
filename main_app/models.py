@@ -18,5 +18,3 @@ class Workout(models.Model):
     default=BODY[0][0]
   )
 
-    #   def __str__(self):
-    #     return self.name
