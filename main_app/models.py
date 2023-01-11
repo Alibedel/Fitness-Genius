@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from datetime import date
+from django.contrib.auth.models import User
 today = date.today()
 
 
@@ -11,10 +12,10 @@ class Workout(models.Model):
       body = models.CharField(
         max_length=50
       )
-    
+      user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     # def get_absolute_url(self):
     # return reverse('detail', kwargs={'workout_id': self.id})
 
 
-#gooooooooood work
+
