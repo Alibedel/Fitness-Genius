@@ -19,3 +19,9 @@ class Workout(models.Model):
 
 
 
+
+class Routine(models.Model):
+  name = models.CharField(max_length=50)
+
+  workout = models.ForeignKey(Workout, on_delete=models.CASCADE)
+
