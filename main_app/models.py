@@ -30,3 +30,9 @@ class Diet(models.Model):
   diet = models.CharField(max_length=50)
 
   workout = models.ForeignKey(Workout, on_delete=models.CASCADE)
+
+
+class Photo(models.Model):
+    url = models.CharField(max_length=200)
+    workout = models.ForeignKey(Workout, on_delete=models.CASCADE)
+
