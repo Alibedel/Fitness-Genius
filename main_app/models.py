@@ -25,3 +25,8 @@ class Routine(models.Model):
 
   workout = models.ForeignKey(Workout, on_delete=models.CASCADE)
 
+
+class Diet(models.Model):
+  diet = models.CharField(max_length=50)
+
+  workout = models.ForeignKey(Workout, on_delete=models.CASCADE)
