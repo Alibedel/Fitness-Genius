@@ -36,4 +36,25 @@
     </table>
   </div>
 </div>
+<div class="row">
+  <div class="col s6">
+    <form action="{% url 'add_diet' workout.id %}" method="post">
+      {% csrf_token %}
+      {{ diet_form.as_p }}
+      <input type="submit" class="btn" value="Add Diet">
+    </form>
+    <table class="striped">
+      <thead>
+        <tr><th>Diet</th></tr>
+      </thead>
+      <tbody>
+        {% for diet in workout.diet_set.all %}
+          <tr>
+            <td>{{diet.diet}}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
 {% endblock %}

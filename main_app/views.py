@@ -6,7 +6,7 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .forms import RoutineForm
+from .forms import RoutineForm, DietForm
 
 # Add the following import
 from django.http import HttpResponse
@@ -25,11 +25,12 @@ def workouts_index(request):
 def workouts_detail(request, workout_id):
   workout = Workout.objects.get(id=workout_id)
   routine_form = RoutineForm()
-  return render(request, 'workouts/detail.html', { 
-    'workout': workout, 'routine_form': routine_form 
+  diet_form = DietForm()
+  return render(request, 'workouts/detail.html', {
+    'workout': workout, 'routine_form': routine_form, 'diet_form': diet_form
     })
 
-
+@login_required
 def add_routine(request, workout_id):
   # create a ModelForm instance using the data in request.POST
   form = RoutineForm(request.POST)
@@ -42,6 +43,19 @@ def add_routine(request, workout_id):
     new_routine.save()
   return redirect('detail', workout_id=workout_id)
 
+
+@login_required
+def add_diet(request, workout_id):
+  # create a ModelForm instance using the data in request.POST
+  form = DietForm(request.POST)
+  # validate the form
+  if form.is_valid():
+    # don't save the form to the db until it
+    # has the cat_id assigned
+    new_diet = form.save(commit=False)
+    new_diet.workout_id = workout_id
+    new_diet.save()
+  return redirect('detail', workout_id=workout_id)
 
 
 
