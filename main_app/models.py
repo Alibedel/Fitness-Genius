@@ -22,12 +22,15 @@ class Workout(models.Model):
 
 class Routine(models.Model):
   name = models.CharField(max_length=50)
+  sets = models.IntegerField()
+  reps = models.IntegerField()
 
   workout = models.ForeignKey(Workout, on_delete=models.CASCADE)
 
 
 class Diet(models.Model):
   diet = models.CharField(max_length=50)
+  grams = models.IntegerField()
 
   workout = models.ForeignKey(Workout, on_delete=models.CASCADE)
 
