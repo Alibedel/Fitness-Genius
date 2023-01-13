@@ -19,7 +19,7 @@ BUCKET = 'workoutapp2023'
 # Define the home view
 @login_required
 def home(request):
-  return HttpResponse('<h1>Welcome to our Workout app!</h1>')
+  return render(request, 'home.html')
 
 @login_required
 def workouts_index(request):

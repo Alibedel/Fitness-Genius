@@ -26,19 +26,26 @@ Once a user has logged in with the above login, they will be brought to an index
 
 ## App Images
 
-Login Page :![My Image](/Travel-Itinerary/assets/images/Screen%20Shot%202022-11-25%20at%209.05.25%20PM.png)
 
-Sign up Page :![My Image](/Travel-Itinerary/assetsimagesScreen%20Shot%202022-11-25%20at%209.05.25%20PM.png)
+Home Page :![My Image](/main_app/static/images/Screenshot%202023-01-13%20at%206.49.16%20PM.png)
+
+Login Page :![My Image](/main_app/static/images/Screenshot%202023-01-13%20at%206.49.36%20PM.png)
+
+Sign up Page :![My Image](/main_app/static/images/Screenshot%202023-01-13%20at%206.49.47%20PM.png)
 
 Front page :
-![My Image](/Travel-Itinerary/assets/images/Screen%20Shot%202022-11-25%20at%209.05.25%20PM.png)
+![My Image](/main_app/static/images/Screenshot%202023-01-13%20at%206.49.58%20PM.png)
 
-
-Details page:
-![My Image](/Travel-Itinerary/assets/images/Screen%20Shot%202022-11-25%20at%209.05.58%20PM.png)
 
 New Workout page:
-![My Image](/Travel-Itinerary/assets/images/Screen%20Shot%202022-11-25%20at%209.16.21%20PM.png)
+![My Image](/main_app/static/images/Screenshot%202023-01-13%20at%206.50.07%20PM.png)
+
+Details page :
+![My Image](/main_app/static/images/Screenshot%202023-01-13%20at%206.50.22%20PM.png)
+
+![My Image](/main_app/static/images/Screenshot%202023-01-13%20at%206.50.34%20PM.png)
+
+![My Image](/main_app/static/images/Screenshot%202023-01-13%20at%206.50.42%20PM.png)
 
 
 
