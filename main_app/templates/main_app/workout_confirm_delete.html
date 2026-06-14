@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Delete Workout — Fitness Genius{% endblock %}
+{% block content %}
+<div class="form-card">
+  <div class="panel" style="text-align:center">
+    <h1>Delete workout?</h1>
+    <p class="subtle">Are you sure you want to delete <span class="accent" style="text-transform:capitalize">{{ object.body }}</span>? This can't be undone.</p>
+    <form action="" method="POST" style="margin-top:18px; display:flex; gap:12px; justify-content:center">
+      {% csrf_token %}
+      <input type="submit" value="Yes, delete" class="btn btn-danger">
+      <a href="{% url 'detail' object.id %}" class="btn btn-ghost">Cancel</a>
+    </form>
+  </div>
+</div>
+{% endblock %}

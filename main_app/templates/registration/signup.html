@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}Sign Up — Fitness Genius{% endblock %}
+{% block content %}
+<div class="form-card">
+  <div class="form-title">
+    <h1>Create your account</h1>
+    <p class="subtle">Start logging workouts in seconds.</p>
+  </div>
+  {% if error_message %}<div class="alert">{{ error_message }}</div>{% endif %}
+  <div class="panel">
+    <form method="post" action="{% url 'signup' %}">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit" class="btn btn-solid" value="Create account">
+    </form>
+  </div>
+  <p class="form-foot">Already a member? <a href="{% url 'login' %}">Log in</a></p>
+</div>
+{% endblock %}

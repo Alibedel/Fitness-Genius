@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}My Workouts — Fitness Genius{% endblock %}
+{% block content %}
+<div class="page-head">
+  <div>
+    <h1>My Workouts</h1>
+    <p class="subtle">Every session you've logged, newest first.</p>
+  </div>
+  <a href="{% url 'workouts_create' %}" class="btn btn-solid">+ New Workout</a>
+</div>
+
+{% if workouts %}
+<div class="cards">
+  {% for workout in workouts %}
+  <a href="{% url 'detail' workout.id %}">
+    <div class="wcard">
+      <span class="tag">{{ workout.date }}</span>
+      <h3>{{ workout.body }}</h3>
+      <div class="arrow">View session →</div>
+    </div>
+  </a>
+  {% endfor %}
+</div>
+{% else %}
+<div class="panel" style="text-align:center">
+  <p class="subtle">No workouts yet. Log your first session to get started.</p>
+  <a href="{% url 'workouts_create' %}" class="btn btn-solid" style="margin-top:12px">+ Add your first workout</a>
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}Fitness Genius — Train smarter{% endblock %}
+{% block content %}
+<section class="hero">
+  <span class="eyebrow">YOUR PERSONAL TRAINING LOG</span>
+  <h1>Train smarter.<br>Track every <span class="grad">rep, set & meal.</span></h1>
+  <p>Fitness Genius helps you plan workouts, log your routines, record your diet and watch your progress build — all in one clean dashboard.</p>
+  <div class="hero-cta">
+    <a href="{% url 'signup' %}" class="btn btn-solid">Start free</a>
+    <a href="{% url 'login' %}" class="btn btn-ghost">Log in</a>
+  </div>
+
+  <div class="feature-grid">
+    <div class="feature">
+      <div class="ico">🏋️</div>
+      <h3>Build workouts</h3>
+      <p>Create dated sessions for any muscle group and keep your whole training history in order.</p>
+    </div>
+    <div class="feature">
+      <div class="ico">📋</div>
+      <h3>Log routines</h3>
+      <p>Record exercises with sets and reps so you always know what to beat next time.</p>
+    </div>
+    <div class="feature">
+      <div class="ico">🥗</div>
+      <h3>Track your diet</h3>
+      <p>Note foods and grams alongside each session to keep nutrition and training aligned.</p>
+    </div>
+    <div class="feature">
+      <div class="ico">📸</div>
+      <h3>Progress photos</h3>
+      <p>Attach photos to any workout to capture how far you've come over time.</p>
+    </div>
+  </div>
+</section>
+{% endblock %}

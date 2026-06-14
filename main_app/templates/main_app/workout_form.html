@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}{% if object %}Edit Workout{% else %}New Workout{% endif %} — Fitness Genius{% endblock %}
+{% block content %}
+<div class="form-card wide">
+  <div class="form-title">
+    {% if object %}<h1>Edit <span class="accent">{{ object.body }}</span></h1>
+    {% else %}<h1>Add a Workout</h1><p class="subtle">Give your session a name and a date.</p>{% endif %}
+  </div>
+  <div class="panel">
+    <form action="" method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit" value="Save Workout" class="btn btn-solid">
+    </form>
+  </div>
+</div>
+{% endblock %}

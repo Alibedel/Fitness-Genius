@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Fitness Genius{% endblock %}</title>
+    <meta name="description" content="Fitness Genius — plan workouts, track routines, log your diet and watch your progress.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <header class="site-nav">
+        <div class="nav-inner">
+            <a href="/" class="brand">
+                <span class="brand-mark">&#9889;</span>
+                <span class="brand-name">Fitness<span class="accent">Genius</span></span>
+            </a>
+            <nav class="nav-links">
+                {% if user.is_authenticated %}
+                <a href="{% url 'index' %}">My Workouts</a>
+                <a href="{% url 'workouts_create' %}" class="btn btn-ghost">+ Add Workout</a>
+                <span class="nav-user">{{ user.username }}</span>
+                <a href="{% url 'logout' %}" class="btn btn-solid">Log Out</a>
+                {% else %}
+                <a href="{% url 'login' %}">Log In</a>
+                <a href="{% url 'signup' %}" class="btn btn-solid">Get Started</a>
+                {% endif %}
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+        <span class="brand-name">Fitness<span class="accent">Genius</span></span>
+        <span>&copy; 2026 &middot; Built by Ali Hassan</span>
+    </footer>
+</body>
+
+</html>

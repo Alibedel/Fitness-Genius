@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block title %}{{ workout.body }} — Fitness Genius{% endblock %}
+{% block content %}
+<div class="detail-grid">
+  <div class="panel hero-panel">
+    <div>
+      <span class="tag" style="color:var(--accent)">{{ workout.date }}</span>
+      <h1>{{ workout.body }}</h1>
+    </div>
+    <div class="row-actions">
+      <a href="{% url 'workouts_update' workout.id %}" class="btn btn-ghost">Edit</a>
+      <a href="{% url 'workouts_delete' workout.id %}" class="btn btn-danger">Delete</a>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2><span class="ico">📋</span>Routines</h2>
+    <form action="{% url 'add_routine' workout.id %}" method="post">
+      {% csrf_token %}
+      {{ routine_form.as_p }}
+      <input type="submit" class="btn btn-violet" value="Add Routine">
+    </form>
+    <table>
+      <thead><tr><th>Exercise</th><th>Sets</th><th>Reps</th></tr></thead>
+      <tbody>
+        {% for routine in workout.routine_set.all %}
+        <tr><td>{{ routine.name }}</td><td>{{ routine.sets }}</td><td>{{ routine.reps }}</td></tr>
+        {% empty %}
+        <tr><td colspan="3" class="empty">No routines logged yet.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="panel">
+    <h2><span class="ico">🥗</span>Diet</h2>
+    <form action="{% url 'add_diet' workout.id %}" method="post">
+      {% csrf_token %}
+      {{ diet_form.as_p }}
+      <input type="submit" class="btn btn-violet" value="Add Diet">
+    </form>
+    <table>
+      <thead><tr><th>Food</th><th>Grams</th></tr></thead>
+      <tbody>
+        {% for diet in workout.diet_set.all %}
+        <tr><td>{{ diet.diet }}</td><td>{{ diet.grams }}</td></tr>
+        {% empty %}
+        <tr><td colspan="2" class="empty">No diet entries yet.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="panel">
+    <h2><span class="ico">📸</span>Progress Photos</h2>
+    {% for photo in workout.photo_set.all %}
+    <img class="thumb" src="{{ photo.url }}" alt="Progress photo">
+    {% empty %}
+    <p class="empty">No photos uploaded yet.</p>
+    {% endfor %}
+    <form action="{% url 'add_photo' workout.id %}" enctype="multipart/form-data" method="POST">
+      {% csrf_token %}
+      <div class="field"><label>Upload a photo</label><input type="file" name="photo-file"></div>
+      <input type="submit" class="btn btn-ghost" value="Upload Photo">
+    </form>
+  </div>
+</div>
+{% endblock %}
